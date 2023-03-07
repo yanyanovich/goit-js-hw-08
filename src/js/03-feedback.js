@@ -12,11 +12,9 @@ const refs = {
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInput, 500));
 
-refs.form.addEventListener('input', e => {
-  formData[e.target.name] = e.target.value;
-});
 entryFormInput();
 function onInput() {
+  formData[e.target.name] = e.target.value;
   return localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 function onFormSubmit(e) {
